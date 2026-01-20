@@ -1,25 +1,33 @@
 <?php
-// Declaramos la libreria
+// Declaramos la librería
 require __DIR__ . "../../vendor/autoload.php";
+require_once "../settings/conexion.php";
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+$id = $_GET['c'];
+$query = $pdo->query("SELECT * FROM computadora WHERE id_c = $id");
+$data = $query->fetch(\PDO::FETCH_ASSOC);
+$disp = $data['ns'];
+
 $spread = new Spreadsheet();
 $spread
-    ->getProperties()
-    ->setCreator("BaulPHP")
-    ->setLastModifiedBy('Nestor Tapia')
-    ->setTitle('Excel creado con PhpSpreadSheet')
-    ->setSubject('Excel Demostración')
-    ->setDescription('Excel generado como prueba')
-    ->setKeywords('PHPSpreadsheet')
-    ->setCategory('Categoría de prueba');
+->getProperties()
+->setCreator("Miguel")
+->setLastModifiedBy('BaulPHP')
+->setTitle('Excel creado con PhpSpreadSheet')
+->setSubject('Excel de prueba')
+->setDescription('Excel generado como demostración')
+->setKeywords('PHPSpreadsheet')
+->setCategory('Categoría Excel');
 
+$fileName="$disp.xlsx";
+# Crear un "escritor"
 $writer = new Xlsx($spread);
-# Creamos el archivo y lo guardamos en el disco
+# Le pasamos la ruta de guardado
 
-$id = $_GET['c'];
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
 
-$writer->save('/$id.xlsx');
-?>
+$writer->save('php://output');
 ?>
