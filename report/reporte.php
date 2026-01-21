@@ -5,10 +5,12 @@ require_once "../settings/conexion.php";
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+// Obtencion de datos computadoras
 $id = $_GET['c'];
 $query = $pdo->query("SELECT * FROM computadora WHERE id_c = $id");
 $data = $query->fetch(\PDO::FETCH_ASSOC);
 
+// Obtencion de datos usuarios
 $id_c = $data['usuario_id'];
 $cons = $pdo->query("SELECT * FROM users WHERE id = $id_c");
 $datau = $cons->fetch(\PDO::FETCH_ASSOC);
