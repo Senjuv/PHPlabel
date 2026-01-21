@@ -25,14 +25,16 @@ $usuario = htmlspecialchars_decode($datau['name']);
 $spread = new Spreadsheet();
 $spread
     ->getProperties()
-    ->setCreator("Miguel")
-    ->setLastModifiedBy('BaulPHP')
-    ->setTitle('Excel creado con PhpSpreadSheet')
-    ->setSubject('Excel de prueba')
-    ->setDescription('Excel generado como demostración')
-    ->setKeywords('PHPSpreadsheet')
-    ->setCategory('Categoría Excel');
+    ->setCreator("??")
+    ->setLastModifiedBy('??')
+    ->setTitle('??')
+    ->setSubject('??')
+    ->setDescription('??')
+    ->setKeywords('??')
+    ->setCategory('??');
 $activeWorksheet = $spread->getActiveSheet();
+
+// Asignamos los valores de las celdas
 $activeWorksheet->setCellValue('A1', 'ID Computadora:');
 $activeWorksheet->setCellValue('B1', 'Numero de serie:');
 $activeWorksheet->setCellValue('C1', 'Marca:');
