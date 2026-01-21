@@ -13,7 +13,7 @@ $id_c = $data['usuario_id'];
 $cons = $pdo->query("SELECT * FROM users WHERE id = $id_c");
 $datau = $cons->fetch(\PDO::FETCH_ASSOC);
 
-$ns = htmlspecialchars_decode($data['ns']);
+$ns = htmlspecialchars_decode($data['ns']); 
 $id = htmlspecialchars_decode($data['id_c']);
 $marca = htmlspecialchars_decode($data['marca']);
 $modelo = htmlspecialchars_decode($data['modelo']);
