@@ -5,11 +5,12 @@
     <?php
     session_start();
     require_once '../settings/conexion.php';
+    require_once '../settings/data/querys.php';
     //verificamos que no venga vacia y que este definida
     if (isset($_SESSION['data']) && !empty($_SESSION['data'])) {
         $data = $_SESSION['data'];
         $_SESSION['data'] = [];
-        $query = $pdo->query("SELECT * FROM computadora");
+        $query = $pdo->query($query['gen']);
     } else {
         echo "<script> alert('no se selecciono ninguno')</script>";
         header('location: ../label/nav/labelsgen.php');
