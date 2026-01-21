@@ -7,4 +7,4 @@
   - Html2PDF-spipu: Esta libreria se utiliza para crear documentos PDF a partir de etiquetas HTML y un diseño CSS.
   - PhpSpreadsheet: Esta libreria nos permite crear hojas de  calculo.
 
- # En este proyecto se usa una configuracion PDO para las consultas, es de facil escalado y facil migracion a Mysqli, la base de datos utilizada para la ejecucion es Sqlite3.
+En este proyecto se usa una configuracion PDO para las consultas, es de facil escalado y facil migracion a Mysqli, la base de datos utilizada para la ejecucion es Sqlite3.
